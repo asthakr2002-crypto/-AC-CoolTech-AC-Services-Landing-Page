@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CoolTech AC Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+body{
+  background:#0b0f0e;
+  font-family:'Poppins',sans-serif;
+  color:#eaeaea;
+}
+.navbar{background:#0b0f0e;padding:15px 40px;}
+.navbar-brand{color:#3cff9a;font-weight:700;}
+.nav-link{color:#9aa4a0;}
+.nav-link:hover{color:#3cff9a;}
+.btn-main{background:#3cff9a;color:#000;border-radius:30px;padding:8px 18px;}
+.btn-outline{border:1px solid #3cff9a;color:#3cff9a;border-radius:30px;}
+.hero{padding:140px 0 100px;}
+.hero h1{font-size:56px;font-weight:700;}
+.hero span{color:#3cff9a;}
+.hero p{color:#9aa4a0;max-width:700px;}
+.services{padding:100px 0;}
+.service-card{
+  background:#111815;border-radius:18px;padding:25px;
+  transition:0.4s;box-shadow:0 0 0 transparent;
+}
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 25px rgba(60,255,154,0.25);
+}
+.price{color:#3cff9a;font-weight:600;}
+.badge-custom{background:#3cff9a;color:#000;font-size:12px;}
+.cta{background:linear-gradient(135deg,#0f241b,#0b0f0e);padding:80px 0;text-align:center;}
+footer{padding:30px;border-top:1px solid #1f2a26;color:#9aa4a0;text-align:center;}
+.modal-content{background:#111815;color:#fff;border-radius:15px;}
+.form-control{
+  background:#0b0f0e;border:1px solid #1f2a26;color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container-fluid">
+  <a class="navbar-brand" href="#">AC CoolTech</a>
+  <div class="collapse navbar-collapse show">
+    <ul class="navbar-nav ms-auto align-items-center gap-3">
+      <li><a class="nav-link" href="#home">Home</a></li>
+      <li><a class="nav-link" href="#services">Services</a></li>
+      <li><button class="btn btn-outline" onclick="callNow()">📞 Call Now</button></li>
+      <li><button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#consultModal">Get a Free Quote</button></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container">
+<h1>Stay Cool,<br><span>Stay Comfortable</span></h1>
+<p class="mt-4">
+Expert AC Installation You Can Trust. Reliable, energy-efficient air conditioning systems installed by certified professionals.
+</p>
+<div class="mt-4">
+<button class="btn btn-main me-3" data-bs-toggle="modal" data-bs-target="#bookModal">
+Book Installation Today
+</button>
+<button class="btn btn-outline" onclick="callNow()">Speak with a Specialist</button>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<h2 class="text-center mb-5">Our Services</h2>
+<div class="row g-4">
+
+<!-- SERVICE CARD -->
+<div class="col-md-4">
+<div class="service-card">
+<h5>Standard AC Installation</h5>
+<p class="text-muted">Split & window AC installation</p>
+<p class="price">$350</p>
+<button class="btn btn-main w-100 pay-btn" data-service="Standard AC Installation" data-price="350">
+Pay & Book
+</button>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="service-card">
+<h5>Central AC System</h5>
+<p class="text-muted">Centralized cooling solutions</p>
+<p class="price">$2500</p>
+<button class="btn btn-main w-100 pay-btn" data-service="Central AC System" data-price="2500">
+Pay & Book
+</button>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="service-card">
+<h5>Emergency AC Repair</h5>
+<p class="text-muted">24/7 emergency repair</p>
+<p class="price">$99</p>
+<button class="btn btn-main w-100 pay-btn" data-service="Emergency AC Repair" data-price="99">
+Pay & Book
+</button>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<div class="container">
+<h2>Precision Cooling Is Not a Luxury</h2>
+<p class="text-muted mt-2">It’s an engineering standard.</p>
+<button class="btn btn-main mt-3" data-bs-toggle="modal" data-bs-target="#consultModal">
+Request Free Consultation
+</button>
+</div>
+</section>
+
+<footer>© 2026 AC CoolTech. All Rights Reserved.</footer>
+
+<!-- BOOK INSTALLATION MODAL -->
+<div class="modal fade" id="bookModal">
+<div class="modal-dialog">
+<div class="modal-content p-4">
+<h4>Book Installation</h4>
+<input class="form-control mt-3" placeholder="Your Name">
+<input class="form-control mt-3" placeholder="Phone Number">
+<button class="btn btn-main mt-4 w-100" onclick="success('Installation booked successfully!')">
+Confirm Booking
+</button>
+</div>
+</div>
+</div>
+
+<!-- CONSULT MODAL -->
+<div class="modal fade" id="consultModal">
+<div class="modal-dialog">
+<div class="modal-content p-4">
+<h4>Free Consultation</h4>
+<input class="form-control mt-3" placeholder="Your Name">
+<input class="form-control mt-3" placeholder="Email">
+<textarea class="form-control mt-3" placeholder="Your Query"></textarea>
+<button class="btn btn-main mt-4 w-100" onclick="success('Consultation request submitted!')">
+Submit
+</button>
+</div>
+</div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal fade" id="paymentModal">
+<div class="modal-dialog">
+<div class="modal-content p-4">
+<h4 id="payService"></h4>
+<p class="price" id="payAmount"></p>
+<button class="btn btn-main w-100" onclick="success('Payment successful & service booked!')">
+Confirm Payment
+</button>
+</div>
+</div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function callNow(){
+  alert("Call us at +1 (234) 567-8900");
+}
+
+function success(msg){
+  alert(msg);
+  location.reload();
+}
+
+$(".pay-btn").click(function(){
+  $("#payService").text($(this).data("service"));
+  $("#payAmount").text("Amount: $" + $(this).data("price"));
+  new bootstrap.Modal(document.getElementById("paymentModal")).show();
+});
+
+$(".service-card").hide().each(function(i){
+  $(this).delay(200*i).fadeIn(800);
+});
+
+$("a.nav-link").click(function(e){
+  e.preventDefault();
+  $("html, body").animate({
+    scrollTop: $($(this).attr("href")).offset().top - 80
+  },800);
+});
+</script>
+
+</body>
+</html>
